@@ -4,7 +4,7 @@
 <database>
     <databaseInfo>
         <version>134481920</version>
-        <UUID>73133B11-16EE-4399-BD09-75ED657F160C</UUID>
+        <UUID>C434D7D8-5478-4FBC-8DCC-506DB1B2CF7F</UUID>
         <nextObjectID>102</nextObjectID>
         <metadata>
             <plist version="1.0">
@@ -29,35 +29,27 @@
     <object type="REMOTEAPP" id="z102">
         <attribute name="userenabled" type="bool">1</attribute>
         <attribute name="showinappswitcher" type="bool">1</attribute>
-        <attribute name="scriptversion" type="float">1</attribute>
+        <attribute name="scriptversion" type="float">1.1</attribute>
         <attribute name="scriptcode" type="string">on rcActivate()
 	ignoring application responses
 		tell the application "Google Chrome" to activate
 	end ignoring
 end rcActivate
 global g_lasttab
+global g_refreshtab
 set g_lasttab to "Reopen Last Closed Tab"
+set g_refreshtab to "Refresh Tab"
 on rcMenu()
 	tell application "Sofa Control"
-		choose from {g_lasttab} prompt "Chrome"
+		choose from {g_lasttab, g_refreshtab} prompt "Chrome"
 	end tell
 end rcMenu
 on rcValueFromMenuChosen(chosenValue)
 	if (chosenValue is g_lasttab) then
 		simulate keystroke "t" with command and shift
-	else if (chosenValue is g_resume) then
-		-- send Option-Command-/ to Transmission
-		simulate keystroke "/" with command and option
-	else if (chosenValue is g_hide) then
-		-- send Command-h to Transmission
-		simulate keystroke "h" with command
-	else if (chosenValue is g_limit) then
-		-- send Command-l to Transmission
-		simulate keystroke "l" with command
-	else if (chosenValue is g_quit) then
-		-- send Command-q to Transmission
-		simulate keystroke "q" with command
-	end if
+	else if (chosenValue is g_refreshtab) then
+		simulate keystroke "r" with command
+end if
 end rcValueFromMenuChosen
 on rcRight()
 	simulate keycode 48 with control
@@ -91,7 +83,7 @@ on rcPlay()
 	end tell
 end rcPlay</attribute>
         <attribute name="name" type="string">Chrome</attribute>
-        <attribute name="lastchangedate" type="date">312966067.16773200035095214844</attribute>
+        <attribute name="lastchangedate" type="date">312980432.77521598339080810547</attribute>
         <attribute name="autotakescontrol" type="bool">1</attribute>
         <attribute name="applicationname" type="string">Google Chrome</attribute>
         <attribute name="applicationbundleidentifier" type="string">com.google.Chrome</attribute>
