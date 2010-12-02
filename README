@@ -1,0 +1,14 @@
+A script for Sofa Control (gravityapps.com/sofacontrol/) to allow Google Chrome to be remote controlled.
+-Callum Gare
+
+To install:
+If you haven't already download and install Sofa Control (it's shareware).
+Open "Chrome.sofa"
+If that doesn't work open Sofa Control, click File > Import Script then locate and open "Chrome.sofa"
+
+Remote:
+Left/right 	Navigate the tabs.
+Up/down 	Move the page up or down 1 and holding up or down will scroll.
+Hold up/down 	Scroll.
+
+If you have feature request, idea, comment or complaint then drop me a line at callumgare@internode.on.net or whatever way you prefer.
