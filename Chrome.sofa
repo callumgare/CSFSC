@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "file:///System/Library/DTDs/CoreData.dtd">
+
+<database>
+    <databaseInfo>
+        <version>134481920</version>
+        <UUID>73133B11-16EE-4399-BD09-75ED657F160C</UUID>
+        <nextObjectID>102</nextObjectID>
+        <metadata>
+            <plist version="1.0">
+                <dict>
+                    <key>NSPersistenceFrameworkVersion</key>
+                    <integer>251</integer>
+                    <key>NSStoreModelVersionHashes</key>
+                    <dict>
+                        <key>RemoteApp</key>
+                        <data>
+		GHMHDtdeI0/1mWoeolfSoce0ynsYsbt5Gc8Bp+TERoM=
+		</data>
+                    </dict>
+                    <key>NSStoreModelVersionHashesVersion</key>
+                    <integer>3</integer>
+                    <key>NSStoreModelVersionIdentifiers</key>
+                    <array></array>
+                </dict>
+            </plist>
+        </metadata>
+    </databaseInfo>
+    <object type="REMOTEAPP" id="z102">
+        <attribute name="userenabled" type="bool">1</attribute>
+        <attribute name="showinappswitcher" type="bool">1</attribute>
+        <attribute name="scriptversion" type="float">1</attribute>
+        <attribute name="scriptcode" type="string">on rcActivate()
+	ignoring application responses
+		tell the application "Google Chrome" to activate
+	end ignoring
+end rcActivate
+global g_lasttab
+set g_lasttab to "Reopen Last Closed Tab"
+on rcMenu()
+	tell application "Sofa Control"
+		choose from {g_lasttab} prompt "Chrome"
+	end tell
+end rcMenu
+on rcValueFromMenuChosen(chosenValue)
+	if (chosenValue is g_lasttab) then
+		simulate keystroke "t" with command and shift
+	else if (chosenValue is g_resume) then
+		-- send Option-Command-/ to Transmission
+		simulate keystroke "/" with command and option
+	else if (chosenValue is g_hide) then
+		-- send Command-h to Transmission
+		simulate keystroke "h" with command
+	else if (chosenValue is g_limit) then
+		-- send Command-l to Transmission
+		simulate keystroke "l" with command
+	else if (chosenValue is g_quit) then
+		-- send Command-q to Transmission
+		simulate keystroke "q" with command
+	end if
+end rcValueFromMenuChosen
+on rcRight()
+	simulate keycode 48 with control
+end rcRight
+on rcLeft()
+	simulate keycode 48 with control and shift
+end rcLeft
+on rcPlus()
+	simulate keycode 116
+end rcPlus
+on rcHoldPlus()
+	simulate keycode 126
+end rcHoldPlus
+on rcMinus()
+	simulate keycode 121
+end rcMinus
+on rcHoldMinus()
+	simulate keycode 125
+end rcHoldMinus
+on rcHoldPlay()
+	simulate keystroke "w" with command
+end rcHoldPlay
+on rcPlay()
+	tell application "QuickTime Player"
+		set frontMovie to front document
+		if frontMovie is playing then
+			pause frontMovie
+		else
+			play frontMovie
+		end if
+	end tell
+end rcPlay</attribute>
+        <attribute name="name" type="string">Chrome</attribute>
+        <attribute name="lastchangedate" type="date">312966067.16773200035095214844</attribute>
+        <attribute name="autotakescontrol" type="bool">1</attribute>
+        <attribute name="applicationname" type="string">Google Chrome</attribute>
+        <attribute name="applicationbundleidentifier" type="string">com.google.Chrome</attribute>
+    </object>
+</database>
