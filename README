@@ -14,5 +14,7 @@ Hold up/down 	Scroll.
 If you have feature request, idea, comment or complaint then drop me a line at callumgare@internode.on.net or whatever way you prefer.
 
 Ver. Log:
-1.0 2/12/10 -First version.
-1.1 2/12/10 -"Refresh Tab" option added to menu.
+1.0 2/12/10 	-First version.
+1.1 2/12/10 	-"Refresh Tab" option added to menu.
+1.2 15/12/10 	-"Close Tab" option added to menu.
+		-It now plays/pauses iTunes and if's closed it'll play/pause QuickTime.
